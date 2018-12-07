@@ -23,27 +23,26 @@ class GNC
   end
 
   def self.max_angle
-
     MAX_ANGLE
   end
 end
 
 describe GNC do
   it { expect(GNC.altitude).not_to be(nil) }
-  it {
+
+  it do
     expect(GNC).to receive(:distance).and_return(8000)
     GNC.altitude
-  }
+  end
 
-  it {
+  it do
     expect(Math).to receive(:cos).and_return(1)
     GNC.altitude
-  }
-  it {
-    expect(GNC.min_angle .. GNC.max_angle).to cover(1)
-  }
+  end
 
-  it 'Вы идите математику учите' do
+  it { expect(GNC.min_angle .. GNC.max_angle).to cover(1) }
+
+  it 'does not attempt to change the condition of the problem' do
     expect(GNC::MAX_ANGLE).to eq(Math::PI/2)
   end
 end
