@@ -14,6 +14,7 @@ class GNC
     distance * Math::cos(angle)
   end
 
+  # mutest:disable
   def self.angle
     rand( min_angle .. max_angle )
   end
